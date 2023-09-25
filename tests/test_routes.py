@@ -9,14 +9,14 @@ def test_reset_accounts():
     response = client.post("/reset")
     
     assert response.status_code == status.HTTP_200_OK
-    assert response.json() == {"message": "State reset successfully"}
+    assert response.text == "OK"
 
 
 def test_get_balance_for_non_existing_account():
     response = client.get("/balance", params={"account_id": 1234})
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
-    assert response.json() == {"detail": "Account not found"}
+    assert response.json() == 0
 
 
 def test_create_account_with_initial_balance():

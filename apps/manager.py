@@ -10,7 +10,9 @@ class AccountManager:
 
     def get_balance(self, account_id):
         if account_id not in self.accounts:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
+        
+        return self.accounts[account_id]
     
     def create(self, account_id):
         if account_id not in self.accounts:
@@ -22,7 +24,7 @@ class AccountManager:
 
     def withdraw(self, origin, amount):
         if origin not in self.accounts:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         
         if amount > self.accounts[origin]:
             raise HTTPException(
@@ -34,7 +36,7 @@ class AccountManager:
         
     def transfer(self, origin, destination, amount):
         if origin not in self.accounts:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Account not found")
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
         
         if amount > self.accounts[origin]:
             raise HTTPException(
