@@ -1,0 +1,5 @@
+# Vscode settings
+.vscode
+
+# tests cache
+tests/__pycache__
