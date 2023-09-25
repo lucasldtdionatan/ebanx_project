@@ -38,3 +38,7 @@ poetry update
 ```
 pytest
 ```
+
+## Test result with ipkiss:
+![image](https://github.com/lucasldtdionatan/ebanx_project/assets/55671737/88976d05-e6a3-4deb-b27f-3ae1ebc59885)
+
